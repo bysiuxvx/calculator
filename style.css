@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    height: 70%;
+    max-width: 530px;
+    min-width: 530px;
+    background-color: gray;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+
+.main .resultScreen {
+    display: flex;
+    height: 20%;
+    background-color: black;
+    width: 100%;
+    flex: 1 1 100%;
+    padding-right: 30px;
+    color: white;
+    font-size: 40px;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.resultScreen::before {
+    display: none;
+    content: '';
+    position: relative;
+    border: 1px solid green;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: green;
+    bottom: 40%;
+    right: 95%;
+}
+
+.main .container {
+    display: flex;
+    width: 100%;
+    height: 15%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container div {
+    display: flex;
+    background-color: darkgray;
+    border: 1px solid yellow;
+    align-items: center;
+    flex: 0 1 20%;
+    justify-content: center;
+    font-size: 50px;
+    height: 90%;
+    font-family: 'Roboto', sans-serif;
+    transition: .3s;
+}
+
+.threeBtn>*:nth-child(1) {
+    flex: 0 1 45%;
+}
+
+.container div:hover {
+    background-color: rgb(75, 74, 74);
+}
