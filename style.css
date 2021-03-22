@@ -113,13 +113,3 @@ body {
         border: 1px solid green;
     }
 }
-
-.timer {
-    position: absolute;
-    height: 100px;
-    width: 100%;
-    background-color: yellow;
-    bottom: 0;
-    font-size: 50px;
-    color: red;
-}
