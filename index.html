@@ -11,40 +11,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap" rel="stylesheet">
 
+
 </head>
 
 <body>
     <div class="main">
-        <div class="resultScreen"></div>
+        <div class="resultScreen">
+            <div class="statusLight"></div>
+            <div class="previousInput"></div>
+            <p id="output"></p>
+        </div>
         <section class="container threeBtn">
-            <div>C</div>
-            <div>%</div>
-            <div>/</div>
+            <button onclick="clearScreen()">C</button>
+            <button onclick="percentage()">%</button>
+            <button value="/" onclick="forDisplay('/')">/</button>
         </section>
         <section class="container">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>X</div>
+            <button value="1" onclick="forDisplay('1')">1</button>
+            <button value="2" onclick="forDisplay('2')">2</button>
+            <button value="3" onclick="forDisplay('3')">3</button>
+            <button value="X" onclick="forDisplay('*')">X</button>
         </section>
         <section class="container">
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>-</div>
+            <button value="4" onclick="forDisplay('4')">4</button>
+            <button value="5" onclick="forDisplay('5')">5</button>
+            <button value="6" onclick="forDisplay('6')">6</button>
+            <button value="-" onclick="forDisplay('-')">-</button>
         </section>
         <section class="container">
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-            <div>+</div>
+            <button value="7" onclick="forDisplay('7')">7</button>
+            <button value="8" onclick="forDisplay('8')">8</button>
+            <button value="9" onclick="forDisplay('9')">9</button>
+            <button value="+" onclick="forDisplay('+')">+</button>
         </section>
         <section class="container threeBtn">
-            <div>0</div>
-            <div>.</div>
-            <div>=</div>
+            <button value="0" onclick="forDisplay('0')">0</button>
+            <button value="." onclick="forDisplay('.')">.</button>
+            <button value="=" onclick="solve()">=</button>
         </section>
     </div>
+    <div class="timer"></div>
+    <script src="app.js"></script>
 </body>
 
 </html>
