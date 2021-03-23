@@ -4,11 +4,22 @@
     box-sizing: border-box;
 }
 
+:root {
+    --colorOutput: rgb(50, 45, 56);
+    --colorAlt: rgb(78, 71, 87);
+    --colorMain: rgb(50, 55, 75);
+    --colorAlt2: rgb(89, 86, 92);
+    --colorFont: rgb(255, 154, 1);
+    --colorBtn: rgb(70, 75, 95);
+}
+
+
 body {
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(119deg, rgba(2, 0, 36, 1) 0%, rgba(255, 154, 1, 1) 0%, rgba(50, 55, 75, 1) 75%, rgba(0, 0, 0, 1) 100%);
 }
 
 .main {
@@ -16,7 +27,7 @@ body {
     height: 70%;
     max-width: 530px;
     min-width: 530px;
-    background-color: gray;
+    background-color: var(--colorMain);
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 10px;
@@ -76,8 +87,6 @@ body {
 
 .container button {
     display: flex;
-    background-color: darkgray;
-    border: 1px solid yellow;
     align-items: center;
     flex: 0 1 20%;
     justify-content: center;
@@ -86,6 +95,10 @@ body {
     font-family: 'Roboto', sans-serif;
     outline: none;
     transition: .3s;
+    color: white;
+    box-shadow: 0 0 0 3.5px var(--colorBtn);
+    background-color: var(--colorBtn);
+    border: 2.5px solid white
 }
 
 .threeBtn>*:nth-child(1) {
@@ -93,7 +106,8 @@ body {
 }
 
 .container button:hover {
-    background-color: rgb(75, 74, 74);
+    background-color: var(--colorFont);
+    box-shadow: 0 0 0 3.5px var(--colorFont);
 }
 
 .lighton {

@@ -1,3 +1,4 @@
+let output = document.getElementById("output")
 
 const clearScreen = () =>{
     document.getElementById('output').innerHTML = 0;
@@ -18,6 +19,11 @@ const percentage = () =>{
       document.getElementById("output").innerHTML = value;
 }   
 
+function CheckLastChar() {
+  if (["×", "+", "-", "÷", "%",".",].includes(output.innerText.slice(-1))) {
+   output.innerText = output.innerText.slice(0, -1)
+  }
+}
 
 function forDisplay(value) {
       removeZero()
@@ -26,80 +32,46 @@ function forDisplay(value) {
     }
 
 const keyboardPress = (event) => {
-    removeZero();
-    if(event.keyCode === 49 || event.keyCode === 97){
-        document.getElementById("output").innerHTML += 1
+    removeZero()
+    key = String.fromCharCode(event.keyCode);
+  if (event.shiftKey) {
+    if (key == "8") {
+      CheckLastChar();
+      output.innerText += "×";
+    } else if (key == "6") {
+      CheckLastChar();
+      output.innerText += "^";
+    } else if (event.keyCode == 187) {
+      CheckLastChar();
+      output.innerText += "+";
     }
-    if(event.keyCode === 50 || event.keyCode === 98){
-        document.getElementById("output").innerHTML += 2
+  } else {
+    if ([...Array(10).keys()].map(el => el.toString()).includes(key)) {
+      output.innerText += key;
+    } else if (event.keyCode == 106) {
+      CheckLastChar();
+      output.innerText += "×";
+    } else if (event.keyCode == 107) {
+      CheckLastChar();
+      output.innerText += "+";
+    } else if (event.keyCode == 189 || event.keyCode == 109) {
+      CheckLastChar();
+      output.innerText += "-";
+    } else if (event.keyCode == 191 || event.keyCode == 111) {
+      CheckLastChar();
+      output.innerText += "÷";
+    } else if (event.keyCode == 190) {
+      CheckLastChar();
+      output.innerText += ".";
+    } else if (event.keyCode == 8) { // backspace
+      output.innerText = output.innerText.slice(0, -1);
+    } else if (event.keyCode == 13) { // enter
+      solve() 
+    } else if (event.keyCode == 187) { // equal sign
+      solve() 
     }
-    if(event.keyCode === 51 || event.keyCode === 99){
-        document.getElementById("output").innerHTML += 3
-    }
-    if(event.keyCode === 52 || event.keyCode === 100){
-        document.getElementById("output").innerHTML += 4
-    }
-    if(event.keyCode === 53 || event.keyCode === 101){
-        document.getElementById("output").innerHTML += 5
-    }
-    if(event.keyCode === 54 || event.keyCode === 102){
-        document.getElementById("output").innerHTML += 6
-    }
-    if(event.keyCode === 55 || event.keyCode === 103){
-        document.getElementById("output").innerHTML += 7
-    }
-    if(event.keyCode === 57 || event.keyCode === 105){
-        document.getElementById("output").innerHTML += 9
-    }
-    // if(event.keyCode === 88){
-    //     forDisplay('*')
-    // }
-    // if(event.shiftKey && event.keyCode === 56){    
-    //     console.log('*')
-    //     forDisplay('*')
-    // }
-    
-    if (event.shiftKey) {
-        if (event.keyCode == 56) {
-        forDisplay('*')
-        } else if (event.keyCode == 187) {
-        forDisplay("+");
-        }
-    }
-     
-    
-    // if (event.keyCode === 56 || event.keyCode === 104) {
-    //     if (event.shiftKey) document.getElementById("output").innerHTML += "*";
-    //     else{
-    //         document.getElementById("output").innerHTML += 8
-    //     }
-    // }
-
-
-
-    if(event.keyCode === 49 || event.keyCode === 107){
-        forDisplay('+')
-    }
-    if(event.keyCode === 189 || event.keyCode === 109){
-        forDisplay('-')
-    }
-    if(event.keyCode === 190 || event.keyCode === 110){
-        forDisplay('.')
-    }
-    if(event.keyCode === 191 || event.keyCode === 111){
-        forDisplay('/')
-    }
-    if(event.keyCode === 16 && event.keyCode === 53){
-        forDisplay('%')
-    }
-    if(event.keyCode === 27 || event.keyCode === 67){
-        clearScreen()
-    }
-    if(event.keyCode === 13 || event.keyCode === 187){
-        solve()
-    }
+  }
 }
-
 
 const solve = () =>{
     removeZero()
@@ -123,17 +95,6 @@ const turnOnLight = () =>{
 
 document.addEventListener('keydown', keyboardPress)
 
-
-
-
-
-
-
-document.addEventListener('keydown', ()=>{
- if(event.shiftKey && event.keyCode){    
-        forDisplay('*')
-    }
-})
 
 
 
