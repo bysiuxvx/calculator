@@ -1,4 +1,5 @@
 let output = document.getElementById("output")
+light = document.querySelector('.statusLight')
 
 const clearScreen = () =>{
     document.getElementById('output').innerHTML = 0;
@@ -59,6 +60,7 @@ const keyboardPress = (event) => {
       output.innerText += "-";
     } else if (event.keyCode == 191 || event.keyCode == 111) {
       CheckLastChar();
+      event.preventDefault()
       output.innerText += "÷";
     } else if (event.keyCode == 190) {
       CheckLastChar();
@@ -93,42 +95,22 @@ const turnOnLight = () =>{
   light.classList.add('lighton')
 }
 
+// if(output.innerHTML === 0){
+//   let time = 0
+//   let intervalCounter = setInterval(() =>{
+//     time++
+//     console.log(time)
+//     if(time == 3){
+//     output.innerHTML = ''
+//     light.classList.remove('lighton')
+//     clearInterval(intervalCounter)
+//     }
+//   } , 1000)
+// }
 
 document.addEventListener('keydown', keyboardPress)
 
 
 
 
-
-
-
-
-// let display = document.getElementById('output')
-// let active = false
-
-// const turnOff = () => {
-//   let time = 0;
-//   if (active == true) {
-//     let timePassed = setInterval(() => {
-//       time++
-//       console.log(time)
-//       if (time == 3) {
-//         removeZero();
-//         document.querySelector('.statusLight').classList.remove('lighton')
-//         clearInterval(timePassed)
-//       }
-//     }, 1000)
-
-
-//   }
-// }
-
-
-
-
-
-// if (display.innerHTML == 0){
-//    active = !active
-//    turnOff()
-// }
 

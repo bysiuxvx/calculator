@@ -20,13 +20,14 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(119deg, rgba(2, 0, 36, 1) 0%, rgba(255, 154, 1, 1) 0%, rgba(50, 55, 75, 1) 75%, rgba(0, 0, 0, 1) 100%);
+    background-repeat: no-repeat;
 }
 
 .main {
     display: flex;
-    height: 70%;
-    max-width: 530px;
-    min-width: 530px;
+    height: 50%;
+    max-width: 500px;
+    min-width: 500px;
     background-color: var(--colorMain);
     flex-wrap: wrap;
     justify-content: space-around;
@@ -45,10 +46,11 @@ body {
     flex: 1 1 100%;
     padding-right: 30px;
     color: white;
-    font-size: 50px;
+    font-size: 48px;
     justify-content: flex-end;
     align-items: center;
-    /* font-family: 'Press Start 2P', cursive; */
+    font-family: 'Orbitron',
+        sans-serif;
 }
 
 .statusLight {
@@ -125,5 +127,15 @@ body {
     100% {
         background-color: green;
         border: 1px solid green;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    .main {
+        height: 60%;
+    }
+
+    .main .resultScreen {
+        height: 20%;
     }
 }
