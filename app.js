@@ -75,9 +75,10 @@ const keyboardPress = (event) => {
 
 const solve = () =>{
     removeZero()
-    let equation = document.getElementById('output').innerHTML
+    stringToEvaluate = output.innerText.replace("×", "*").replace("÷", "/").replace("^", "**")
+    let equation = stringToEvaluate
     let solution = eval(equation)
-    document.getElementById('output').innerHTML = solution
+    output.innerHTML = solution
 }
 
 
